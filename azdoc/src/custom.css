@@ -1,0 +1,28 @@
+.welcomepage{
+    text-align: center;
+    color: white;
+    background-color: rgb(15, 29, 54);
+    height: 100vh;
+}
+.appname{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.welcomemsg{
+    padding-bottom: 120px;
+}
+.touchtostart{
+    cursor: pointer;
+    color: white;
+}
+.touchtostart:hover{
+    text-decoration: none;
+    color: gold;
+}
+.iam{
+    text-align: center;
+    padding: 80px;
+}
+.categorybutton{
+    height: 60px;
+}

@@ -1,11 +1,14 @@
-import { Modal } from "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
+import * as fe from 'react-feather';
 
 export default function Visitor(props){
     return(
         <div>
             <div className="container">
             <div className="mainform">
+                <div>
+                    <fe.XCircle className="mb-2" style={{float: "right"}}/>
+                </div>
                   <div>
                     <h3 className="">
                       Visitor Form

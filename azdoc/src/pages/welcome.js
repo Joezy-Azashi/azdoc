@@ -1,14 +1,11 @@
 import React from 'react';
-import Mainlayout from '../components/Mainlayout/Header';
 import * as fe from 'react-feather';
-import Categorypage from '../pages/categorypage'
-
+import { Link } from 'react-router-dom'
 
 
 export default function Welcome(){
     return(
         <div className="welcomepage">
-        <Mainlayout />
         <div>
             <div>
                 <div className="appname">
@@ -16,7 +13,7 @@ export default function Welcome(){
                     <h1>azdoc</h1>
                 </div>
                 <div className="welcomemsg"><h3>Welcome to Amalitech</h3></div>
-                <a href="/categorypage" className="touchtostart"><h6>PRESS HERE TO START</h6></a>
+                <Link to="/category" className="touchtostart"><h6>PRESS HERE TO START</h6></Link>
             </div>
         </div>
        </div>

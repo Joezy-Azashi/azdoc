@@ -1,14 +1,17 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Welcome from './pages/welcome';
-import Categorypage from './pages/categorypage';
+import './custom.css';
+import MainRoutes from './pages/MainRoutes';
+import {BrowserRouter} from 'react-router-dom'
 
 function App() {
   return (
+    <BrowserRouter>
     <div>
-      {/* <Welcome/> */}
-      <Categorypage/>
+      <MainRoutes/>
     </div>
+    </BrowserRouter>
+    
   );
 }
 

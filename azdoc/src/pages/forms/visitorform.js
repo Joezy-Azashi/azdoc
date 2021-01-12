@@ -126,12 +126,14 @@ const Visitor = (props) => {
                         </div>
                       </div>
                       <div className="row justify-content-center mt-5">
+                      <div class="btn-group col-12 col-sm-3 align-self-center" role="group" >
                       <button
                         type="submit"
-                        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}>
+                        className={`${loader ? "disable" : " btn-primary" } btn-block btn-sm nav-link font-weight-bold`}>
                         Submit
                       </button>
-                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group" id="reserveButton"  >
+                      </div>
+                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group"   >
                         <a href="/category" role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
                         Cancel
                         </a>

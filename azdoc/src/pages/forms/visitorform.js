@@ -8,7 +8,7 @@ export default function Visitor(props){
             <div className="mainform">
                   <div>
                     <h3 className="">
-                      Visitor Form
+                      {props.name}
                     </h3>
                   </div>
                   <br />

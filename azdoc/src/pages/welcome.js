@@ -12,7 +12,16 @@ export default function Welcome(){
                     <h1>azdoc</h1>
                 </div>
                 <div className="welcomemsg"><h3>Welcome to Amalitech</h3></div>
-                <Link to="/category" className="touchtostart"><h6>PRESS HERE TO START</h6></Link>
+                <div class="btn-group col-12 col-sm-3 align-self-center okbtn" role="group" id="reserveButton"  >
+                    <a href="/category" role="button" class="btn btn-primary btn-block btn-sm nav-link font-weight-bold ">
+                        Sign in
+                    </a>
+                </div>
+                <div class="btn-group col-12 col-sm-3 align-self-center okbtn" role="group" id="reserveButton"  >
+                    <a role="button" class="btn btn-warning btn-block btn-sm nav-link font-weight-bold ">
+                        Sign Out
+                    </a>
+                </div>
             </div>
        </div>
         

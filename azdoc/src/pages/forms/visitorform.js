@@ -1,5 +1,6 @@
 import React from 'react';
 import * as fe from 'react-feather';
+import {Link} from 'react-router-dom';
 
 export default function Visitor(props){
     return(
@@ -7,7 +8,9 @@ export default function Visitor(props){
             <div className="container">
             <div className="mainform">
                 <div>
+                <Link to="/category">
                     <fe.XCircle className="mb-2" style={{float: "right"}}/>
+                    </Link>
                 </div>
                   <div>
                     <h3 className="">
@@ -56,7 +59,7 @@ export default function Visitor(props){
                          </a>
                     </div>
                     <div class="btn-group col-12 col-sm-3 align-self-center" role="group" id="reserveButton"  >
-                        <a role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
+                        <a href="/category" role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
                         Cancel
                         </a>
                     </div>

@@ -13,15 +13,26 @@ export default function Visitor(props){
                     </Link>
                 </div>
                   <div>
-                    <h3 className="">
+                    <h3>
                       {props.name}
                     </h3>
                   </div>
                   <br />
                   <form>
+                  <div className="row">
+                          <div className="col-md-6 mb-4">
+                            <label>First Name</label><br/>
+                            <input type="text" className="form-control nameinput"/>
+                          </div>
+
+                          <div className="col-md-6">
+                          <label>Last Name</label><br/>
+                            <input type="text" className="form-control nameinput"/>
+                          </div>
+                      </div>
                       <div className="row">
                           <div className="col-md-6 mb-4">
-                            <label>Name</label><br/>
+                            <label>VisitorId</label><br/>
                             <input type="text" className="form-control nameinput"/>
                           </div>
 

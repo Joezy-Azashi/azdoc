@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Visitor from './forms/visitorform';
+import {Link} from 'react-router-dom'
 
 
 export default function Categorypage(){
@@ -14,11 +14,11 @@ export default function Categorypage(){
         </div>
         <div>
             <div className="row mb-4">
-                <div className="col-md-6 btn-group categorybutton mb-4">
+                <Link to="/visitorform" className="col-md-6 btn-group categorybutton mb-4">
                     
                     <a role="button"  className="btn btn-primary btn-block nav-link categorybutton">
                         <h6 className="font-weight-bold categorytext mt-2">A Visitor</h6></a>
-                </div>
+                </Link>
                 <div className="col-md-6 btn-group categorybutton">
                     <a href="" role="button" className="btn btn-primary btn-block nav-link font-weight-bold categorybutton">
                         <h6 className="font-weight-bold categorytext mt-2">A Business</h6></a>

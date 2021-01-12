@@ -1,6 +1,6 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import './custom.css';
+import './assets/css/custom.css';
 import MainRoutes from './pages/MainRoutes';
 import {BrowserRouter} from 'react-router-dom'
 

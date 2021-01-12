@@ -18,7 +18,7 @@ export default function Welcome(){
                     </a>
                 </div>
                 <div class="btn-group col-12 col-sm-3 align-self-center okbtn" role="group" id="reserveButton"  >
-                    <a role="button" class="btn btn-warning btn-block btn-sm nav-link font-weight-bold ">
+                    <a href="/signout" role="button" class="btn btn-warning btn-block btn-sm nav-link font-weight-bold ">
                         Sign Out
                     </a>
                 </div>

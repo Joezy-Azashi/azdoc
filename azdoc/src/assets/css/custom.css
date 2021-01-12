@@ -33,11 +33,47 @@
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     margin: 5% auto;
     padding: 20px;
-    width: 70%;
+    width: 65%;
 }
 .mainform h3{
     text-align: center;
 }
 .nameinput{
     border-radius: 10px;
+}
+.formbtn{
+    border-radius: 10px;
+}
+.formbuttons{
+    border-radius: 10px;
+}
+.formtextarea{
+    resize: none;
+}
+
+@media (max-width: 576px){
+    .mainform{
+        width: 90%;
+    }
+    .okbtn{
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .mainform{
+        width: 90%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .mainform{
+        width: 90%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1024px){
+    .mainform{
+        width: 90%;
+    }
 }

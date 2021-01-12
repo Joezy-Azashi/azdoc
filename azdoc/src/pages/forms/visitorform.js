@@ -34,12 +34,12 @@ export default function Visitor(props){
                       <div className="row">
                           <div className="col-md-6 mb-4">
                             <label>Phone</label><br/>
-                            <input type="text" className="form-control nameinput"/>
+                            <input type="number" placeholder="eg. 020 000 0000" className="form-control nameinput"/>
                           </div>
 
                           <div className="col-md-6 mb-4">
                             <label>Email</label><br/>
-                            <input type="text" className="form-control nameinput"/>
+                            <input type="email" className="form-control nameinput"/>
                           </div>
                       </div>
 

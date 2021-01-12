@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as fe from 'react-feather';
 import {Link} from 'react-router-dom';
-import {db} from '../../Firebase';
+import {db} from '../../newFireBase';
 
 const Visitor = (props) => {
   const [fname, setFname] = useState("");
@@ -18,7 +18,7 @@ const Visitor = (props) => {
     e.preventDefault();
     setLoader(true);
 
-    db.collection('contacts')
+    db.collection('visitor')
     .add({
       fname: fname,
       lname: lname,

@@ -6,8 +6,7 @@ import Categorypage from './pages/categorypage';
 function App() {
   return (
     <div>
-      {/* <Welcome/> */}
-      <Categorypage/>
+      <Welcome/>
     </div>
   );
 }

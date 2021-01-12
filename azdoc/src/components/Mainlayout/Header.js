@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../custom.css';
+import '../../assets/css/custom.css';
 
 export default function Mainlayout (){
     return(

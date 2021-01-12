@@ -11,6 +11,9 @@
 .welcomemsg{
     padding-bottom: 120px;
 }
+.welcomemsg h3{
+    font-style: italic;
+}
 .touchtostart{
     cursor: pointer;
     color: white;

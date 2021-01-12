@@ -16,7 +16,18 @@ export default function Welcome(){
                     <h1>azdoc</h1>
                 </div>
                 <div className="welcomemsg"><h3>Welcome to Amalitech</h3></div>
-                <a href="/categorypage" className="touchtostart"><h6>PRESS HERE TO START</h6></a>
+
+                <div className="row mb-4">
+                <div className=" btn-group categorybutton mb-4">
+                    
+                    <a href="/Welcome" role="button" className="btn btn-primary nav-link categorybutton">
+                        <h6 className="font-weight-bold categorytext mt-2">Sign in</h6></a>
+                </div>
+                <div className="btn-group categorybutton">
+                    <a href="" role="button" className="btn btn-primary nav-link font-weight-bold categorybutton">
+                        <h6 className="font-weight-bold categorytext mt-2">Sign out</h6></a>
+                </div>
+            </div>
             </div>
         </div>
        </div>

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 export default function Welcome(){
     return(
         <div className="welcomepage">
-        <div>
             <div>
                 <div className="appname">
                     <fe.Bell className="mb-4"/>
@@ -15,7 +14,6 @@ export default function Welcome(){
                 <div className="welcomemsg"><h3>Welcome to Amalitech</h3></div>
                 <Link to="/category" className="touchtostart"><h6>PRESS HERE TO START</h6></Link>
             </div>
-        </div>
        </div>
         
     )

@@ -11,7 +11,7 @@ export default function Visitor(props){
                 </div>
                   <div>
                     <h3 className="">
-                      Visitor Form
+                      {props.name}
                     </h3>
                   </div>
                   <br />

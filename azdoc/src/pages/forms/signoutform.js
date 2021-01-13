@@ -9,7 +9,7 @@ class Signout extends Component{
 
         this.state = {
             visitorId: '',
-            purpose: ''
+            comment: ''
             
         }
 
@@ -58,12 +58,12 @@ class Signout extends Component{
                         </FormGroup>
                      <FormGroup row>
                      <Col md={12} mb={4}>
-                            <Label htmlFor="purpose">Purpose</Label><br/>
+                            <Label htmlFor="comment">Comment</Label><br/>
                             <Input
                             rows="5"
                             type="textarea" className="form-control nameinput formtextarea"
-                            name="purpose"
-                            value={this.state.purpose}
+                            name="comment"
+                            value={this.state.comment}
                             onChange={this.handleInputChange}></Input>
                         </Col>
                         </FormGroup>

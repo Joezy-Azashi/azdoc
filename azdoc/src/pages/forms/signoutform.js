@@ -2,37 +2,53 @@ import React, {Component, useState} from 'react';
 import * as fe from 'react-feather';
 import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import {db} from '../../newFireBase';
+import swal from 'sweetalert';
+import history from '../../history';
 
-class Signout extends Component{
-    constructor(props){
-        super(props);
+const Signout = (props) =>{
+    const [visitorId, setVisitorId] = useState("");
+    const [comment, setComment] = useState("");
+    const [loader, setLoader] = useState(false);
+    const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
+ 
+    const handleHistory = ()=> history.push('/welcome');
+    
+    const handleSubmit = (e) => {
+         e.preventDefault();
+    setLoader(true);
+    db.collection("Visitor").doc(visitorId).update({
+      signoutTime: timestamp
+    })
+    .then(() => {
+      setLoader(false);
 
-        this.state = {
-            visitorId: '',
-            comment: ''
-            
+      swal({
+        icon: "success",
+        text: "Sign Out Successful",
+        confirm: {
+          text: "OK",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
         }
+      })
+    
+    .then(()=>{
+        handleHistory();
+      }) 
+      
+    })
+    .catch((error) => {
+      alert(error.message);
+      setLoader(false);
+    });
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    setVisitorId("");
+    setComment("");
+
     }
-    handleInputChange(event){
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
-
-    }
-
-    handleSubmit(event){
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert('Current State is: ' + JSON.stringify(this.state));
-        event.preventDefault();
-    }
-    render(){
         return(
             <div>
                 <div className="container">
@@ -48,12 +64,12 @@ class Signout extends Component{
                         </h3>
                       </div>
                       <br />
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={handleSubmit}>
                     <FormGroup row>
                         <Col md={12} mb={4}>
                                 <Label htmlFor="visitorId">VisitorId</Label><br/>
-                                <Input type="text" id="visitorId" name="visitorId" className="form-control nameinput" value={this.state.visitorId}
-                                onChange={this.handleInputChange}/>
+                                <Input type="text" id="visitorId" name="visitorId" className="form-control nameinput" value={visitorId}
+                                onChange={(e) => setVisitorId(e.target.value)}/>
                         </Col>
                         </FormGroup>
                      <FormGroup row>
@@ -63,17 +79,19 @@ class Signout extends Component{
                             rows="5"
                             type="textarea" className="form-control nameinput formtextarea"
                             name="comment"
-                            value={this.state.comment}
-                            onChange={this.handleInputChange}></Input>
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}/>
                         </Col>
                         </FormGroup>
                     
                     <FormGroup row className="justify-content-center mt-5">
-                        <div class="btn-group col-12 col-sm-3 align-self-center okbtn" role="group" id="reserveButton"  >
-                            <a role="button" type="submit" class="btn btn-primary btn-block btn-sm nav-link font-weight-bold ">
-                            OK
-                             </a>
-                        </div>
+                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group" >
+                      <button
+                        type="submit"
+                        className={`${loader ? "disable" : " btn-primary" } btn-block btn-sm nav-link font-weight-bold`}>
+                        OK
+                      </button>
+                      </div>
                         <div class="btn-group col-12 col-sm-3 align-self-center" role="group" id="reserveButton"  >
                             <a href="/" role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
                             Cancel
@@ -86,7 +104,6 @@ class Signout extends Component{
         </div>
     </div>
         )
-    }
    
     
 }

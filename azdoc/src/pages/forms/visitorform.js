@@ -13,6 +13,7 @@ const Visitor = (props) => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
+  const [signintime, setSignintime] = useState("");
 
   const [loader, setLoader] = useState(false);
 
@@ -30,7 +31,8 @@ const Visitor = (props) => {
       company: company,
       phone: phone,
       email: email,
-      purpose: purpose
+      purpose: purpose,
+      signintime: signintime,
     })
     .then(() => {
       setLoader(false);

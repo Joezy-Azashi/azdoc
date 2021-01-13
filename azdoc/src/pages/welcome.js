@@ -7,6 +7,11 @@ export default function Welcome(){
     return(
         <div className="welcomepage">
             <div>
+                <div>
+                    <button className="btn btn-primary">
+                    Admin
+                    </button>
+                </div>
                 <div className="appname">
                     <fe.Bell className="mb-4"/>
                     <h1>azdoc</h1>

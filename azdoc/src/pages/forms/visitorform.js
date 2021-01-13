@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as fe from 'react-feather';
 import {Link} from 'react-router-dom';
 import {db} from '../../newFireBase';
+import swal from 'sweetalert';
+import history from '../../history';
 
 const Visitor = (props) => {
   const [fname, setFname] = useState("");
@@ -13,6 +15,8 @@ const Visitor = (props) => {
   const [purpose, setPurpose] = useState("");
 
   const [loader, setLoader] = useState(false);
+
+  const handleHistory = ()=> history.push('/welcome')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +34,23 @@ const Visitor = (props) => {
     })
     .then(() => {
       setLoader(false);
-      alert('Details have been submitted')
+
+      swal({
+        icon: "success",
+        text: "Details have been submitted",
+        confirm: {
+          text: "OK",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
+        }
+      })
+      .then(()=>{
+        handleHistory();
+      })
+
+      
     })
     .catch((error) => {
       alert(error.message);
@@ -44,6 +64,8 @@ const Visitor = (props) => {
     setPhone('');
     setEmail('');
     setPurpose('');
+
+   
   };
 
     return(

@@ -22,6 +22,10 @@
     text-decoration: none;
     color: gold;
 }
+.categoryback{
+    float: left;
+    margin-top: 50px;
+}
 .iam{
     text-align: center;
     padding: 80px;

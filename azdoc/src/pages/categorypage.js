@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import * as fe from 'react-feather';
 
 
 export default function Categorypage(){
@@ -8,7 +9,11 @@ export default function Categorypage(){
         <>
     
         <div className="container">
-        
+        <div>
+            <Link to="/welcome">
+                <fe.ArrowLeftCircle className="categoryback"/>
+            </Link>
+        </div>
         <div className="iam">
             <h1>I am: </h1>
         </div>

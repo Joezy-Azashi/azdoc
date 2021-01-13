@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as fe from 'react-feather';
 import {Link} from 'react-router-dom';
-import {db} from '../../Firebase';
+import {db} from '../../newFireBase';
 
 const Visitor = (props) => {
   const [fname, setFname] = useState("");
@@ -18,7 +18,7 @@ const Visitor = (props) => {
     e.preventDefault();
     setLoader(true);
 
-    db.collection('contacts')
+    db.collection('visitor')
     .add({
       fname: fname,
       lname: lname,
@@ -37,13 +37,13 @@ const Visitor = (props) => {
       setLoader(false);
     });
 
-    // setFname = ('');
-    // setLname = ('');
-    // setVisitorid = ('');
-    // setCompany = ('');
-    // setPhone = ('');
-    // setEmail = ('');
-    // setPurpose = ('');
+    setFname('');
+    setLname('');
+    setVisitorid('');
+    setCompany('');
+    setPhone('');
+    setEmail('');
+    setPurpose('');
   };
 
     return(
@@ -126,12 +126,14 @@ const Visitor = (props) => {
                         </div>
                       </div>
                       <div className="row justify-content-center mt-5">
+                      <div class="btn-group col-12 col-sm-3 align-self-center" role="group" >
                       <button
                         type="submit"
-                        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}>
+                        className={`${loader ? "disable" : " btn-primary" } btn-block btn-sm nav-link font-weight-bold`}>
                         Submit
                       </button>
-                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group" id="reserveButton"  >
+                      </div>
+                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group"   >
                         <a href="/category" role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
                         Cancel
                         </a>

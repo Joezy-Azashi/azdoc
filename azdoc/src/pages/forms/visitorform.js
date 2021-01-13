@@ -13,17 +13,18 @@ const Visitor = (props) => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
-  const [signintime, setSignintime] = useState("");
+  const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
+
 
   const [loader, setLoader] = useState(false);
 
   const handleHistory = ()=> history.push('/welcome')
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
-
-    db.collection('visitor')
+    db.collection(props.name)
     .add({
       fname: fname,
       lname: lname,
@@ -32,7 +33,7 @@ const Visitor = (props) => {
       phone: phone,
       email: email,
       purpose: purpose,
-      signintime: signintime,
+      signInTime: timestamp
     })
     .then(() => {
       setLoader(false);

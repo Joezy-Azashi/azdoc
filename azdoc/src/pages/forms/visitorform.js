@@ -15,6 +15,7 @@ const Visitor = (props) => {
   const [purpose, setPurpose] = useState("");
   const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
 
+  const ref = db.collection("Visitor");
 
   const [loader, setLoader] = useState(false);
 
@@ -24,8 +25,7 @@ const Visitor = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
-    db.collection(props.name)
-    .add({
+    ref.doc(phone).set({
       fname: fname,
       lname: lname,
       visitorid: visitorid,
@@ -33,7 +33,8 @@ const Visitor = (props) => {
       phone: phone,
       email: email,
       purpose: purpose,
-      signInTime: timestamp
+      signInTime: timestamp,
+      signoutTime: ""
     })
     .then(() => {
       setLoader(false);

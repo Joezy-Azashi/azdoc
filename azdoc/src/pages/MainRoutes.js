@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Welcome from './welcome';
+import Admin from './admin_login';
 import Categorypage from './categorypage';
 import Visitor from './forms/visitorform';
 import Signout from "./forms/signoutform";
@@ -14,6 +15,7 @@ class MainRoutes extends Component{
                 <Switch>
                     <Route exact path="/welcome" component={Welcome}/>
                     <Route exact path="/category" component={Categorypage} />
+                    <Route path="/admin" component={Admin} />
                     <Route path="/category/visitorform" component={()=><Visitor name="Visitor Form" />} />
                     <Route path="/category/businessform" component={()=><Visitor name="Business Form" />} />
                     <Route path="/category/contractorform" component={()=><Visitor name="Contractor Form" />} />

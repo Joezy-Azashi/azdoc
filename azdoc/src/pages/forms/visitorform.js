@@ -158,8 +158,8 @@ const Visitor = (props) => {
                         Submit
                       </button>
                       </div>
-                    <div class="btn-group col-12 col-sm-3 align-self-center" role="group"   >
-                        <a href="/category" role="button" class="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
+                    <div className="btn-group col-12 col-sm-3 align-self-center" role="group"   >
+                        <a href="/category" role="button" className ="btn btn-danger btn-block btn-sm nav-link font-weight-bold ">
                         Cancel
                         </a>
                     </div>

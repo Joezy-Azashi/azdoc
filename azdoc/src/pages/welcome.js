@@ -1,17 +1,16 @@
 import React from 'react';
 import * as fe from 'react-feather';
-import { Link } from 'react-router-dom'
+import { Button} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 
 export default function Welcome(){
     return(
         <div className="welcomepage">
+            <Link to="/admin">
+                <Button variant="outline-success" className=" mt-4 mr-5" style={{float: "right"}}>Admin Login</Button>
+            </Link>
             <div>
-                <div>
-                    <button className="btn btn-primary">
-                    Admin
-                    </button>
-                </div>
                 <div className="appname">
                     <fe.Bell className="mb-4"/>
                     <h1>azdoc</h1>

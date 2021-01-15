@@ -1,10 +1,11 @@
-import React, {Component, useState} from 'react';
+import React,{ useState} from 'react';
 import * as fe from 'react-feather';
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import {Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {db} from '../../newFireBase';
 import swal from 'sweetalert';
 import history from '../../history';
+
 
 const Signout = (props) =>{
     const [visitorId, setVisitorId] = useState("");
@@ -13,12 +14,14 @@ const Signout = (props) =>{
     const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
  
     const handleHistory = ()=> history.push('/welcome');
+    const ref = db.firestore().collection("Visitor")
     
     const handleSubmit = (e) => {
          e.preventDefault();
     setLoader(true);
-    db.collection("Visitor").doc(visitorId).update({
-      signoutTime: timestamp
+    ref.doc(visitorId).update({
+      signoutTime: timestamp,
+      comment: comment
     })
     .then(() => {
       setLoader(false);

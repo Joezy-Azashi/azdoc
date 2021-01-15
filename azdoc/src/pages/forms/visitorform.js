@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import * as fe from 'react-feather';
 import {Link} from 'react-router-dom';
 import {db} from '../../newFireBase';
@@ -15,7 +15,7 @@ const Visitor = (props) => {
   const [purpose, setPurpose] = useState("");
   const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
 
-  const ref = db.collection("Visitor");
+  const ref = db.firestore().collection("Visitor");
 
   const [loader, setLoader] = useState(false);
 
@@ -34,7 +34,8 @@ const Visitor = (props) => {
       email: email,
       purpose: purpose,
       signInTime: timestamp,
-      signoutTime: ""
+      signoutTime: "",
+      comment: ""
     })
     .then(() => {
       setLoader(false);

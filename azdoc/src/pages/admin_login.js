@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
-import {db} from '../../newFireBase';
+import React, { useState, useEffect } from "react";
+import AdminLogin from './forms/adminLoginForm'
+import {db} from '../newFireBase';
+import AdminPage from './adminpage';
+import swal from 'sweetalert';
 
 const Admin = () => {
   const [user, setUser] = useState("")
@@ -8,49 +10,93 @@ const Admin = () => {
   const [password, setPassword] = useState("");
   const [emailerror, setEmailerror] = useState("");
   const [passworderror, setPassworderror] = useState("");
-  const [hasaccount, setHasaccount] = useState("");
+  const [loader, setLoader] = useState(false);
+
+  const clearInputs = () => {
+    setEmail("");
+    setPassworderror("");
+  }
+
+  const clearErrors = () => {
+    setEmailerror("");
+    setPassworderror("");
+  }
 
   const handleLogin = () => {
+    clearErrors();
+    setLoader(true);
     db
     .auth()
-    .signinWithEmailAndPassword(email, password)
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      setLoader(false);
+
+      swal({
+        icon: "success",
+        text: "Signed in As Admin",
+        confirm: {
+          text: "OK",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
+        }
+      })
+    })
     .catch (err => {
+      setLoader(false);
       switch(err.code){
           case "auth/invalid-email":
           case "auth/user-disabled":
           case "auth/user-not-found":
             setEmailerror(err.message);
-            break;
+          break;
+          case "auth/wrong-password":
+            setPassworderror(err.message);
+          break;
       }
     })
 
   }
 
+  const handleLogOut = () =>{
+    db.auth().signOut();
+  };
+
+  const authListener = () => {
+    db
+    .auth()
+    .onAuthStateChanged( (user) => {
+      if(user){
+        clearInputs();
+        setUser(user);
+      }
+      else{
+        setUser("")
+      }
+    });
+  };
+  
+  useEffect( ()=>{
+    authListener();
+  }, []);
+
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
-        <FormGroup size="lg" controlId="email">
-          <Label>Email</Label>
-          <Input
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup size="lg" controlId="password">
-          <Label>Password</Label>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </FormGroup>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
-      </Form>
-    </div>
+    <>
+      { user ? (<AdminPage handleLogOut={handleLogOut}/>) :
+      (<div className="Login"><AdminLogin
+      setEmail={setEmail}
+      setPassword={setPassword}
+      email={email}
+      password={password}
+      emailerror={emailerror}
+      passworderror={passworderror}
+      handleLogin={handleLogin}
+      loader={loader}
+      /></div>)
+
+  }
+    </>
   );
 }
 export default Admin;

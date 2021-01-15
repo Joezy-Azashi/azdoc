@@ -39,6 +39,24 @@
     padding: 20px;
     width: 65%;
 }
+.adminform{
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    margin: 5% auto;
+    padding: 20px;
+    width: 50%;
+}
+.adminformDiv{
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+}
+.adminPage{
+    text-align: center;
+    color: white;
+    background-color: rgb(15, 29, 54);
+    height: 100%;
+}
+
 .mainform h3{
     text-align: center;
 }
@@ -62,11 +80,23 @@
     .okbtn{
         margin-bottom: 15px;
     }
+    .adminformDiv{
+        width: 90%;
+    }
+    .adminform{
+        width: 80%;
+    }
 }
 
 @media (min-width: 577px) and (max-width: 768px){
     .mainform{
         width: 90%;
+    }
+    .adminformDiv{
+        width: 90%;
+    }
+    .adminform{
+        width: 80%;
     }
 }
 
@@ -74,11 +104,23 @@
     .mainform{
         width: 90%;
     }
+    .adminformDiv{
+        width: 90%;
+    }
+    .adminform{
+        width: 80%;
+    }
 }
 
 @media (min-width: 993px) and (max-width: 1024px){
     .mainform{
         width: 90%;
+    }
+    .adminformDiv{
+        width: 90%;
+    }
+    .adminform{
+        width: 80%;
     }
 }
 
@@ -91,4 +133,9 @@
       margin: 0 auto;
       max-width: 320px;
     }
+  }
+
+  .errorMsg {
+      color:rgba(92, 0, 0, 0.733);
+      font-size: small;
   }

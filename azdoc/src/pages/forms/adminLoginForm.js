@@ -52,7 +52,11 @@ const
                             <p className="erroMsg">{passworderror}</p>
                           </div>
                           </div>
-                          
+                          <div className="row justify-content-center mt-5">
+                          <div className={`${loader ? "lds-dual-ring" : ""} col-sm-12  align-self-center`}>
+                          <p style={{color: "black"}}></p> 
+                          </div>
+                          </div>
                           <div className="row justify-content-center mt-5">
                       <div class="btn-group col-12 col-sm-6 align-self-center" role="group" >
                       <button

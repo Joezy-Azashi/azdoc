@@ -38,7 +38,7 @@ export default function AdminPage({handleLogOut}){
     return(
 <div className="adminPage">
         <div className=" container">
-            <div classname="row row-content">
+            <div className="row row-content">
             <Link to="/welcome">
                 <Button variant="outline-success" className=" mt-4 mr-5" style={{float: "right"}} onClick={handleLogOut}> Logout</Button>
             </Link>
@@ -54,7 +54,7 @@ export default function AdminPage({handleLogOut}){
                {loader ? <h1>Loading...</h1> : null}
                 
                <div class="row row-content ">
-                    <div class="col-12 col-sm-10 pr-4 justify-content-center">
+                    <div class="col-12 col-sm-10 ml-5 pr-4 justify-content-center">
                 <h2>Visitor Logg</h2>
                 <div class="table-responsive">
                     <table class="table table-striped">

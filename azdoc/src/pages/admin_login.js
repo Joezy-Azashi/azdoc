@@ -22,9 +22,10 @@ const Admin = () => {
     setPassworderror("");
   }
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
     clearErrors();
     setLoader(true);
+    e.preventDefault();
     db
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -54,6 +55,7 @@ const Admin = () => {
           case "auth/wrong-password":
             setPassworderror(err.message);
           break;
+          
       }
     })
 
@@ -87,7 +89,7 @@ const Admin = () => {
       (<div className="Login"><AdminLogin
       setEmail={setEmail}
       setPassword={setPassword}
-      email={email}
+      email= {email}
       password={password}
       emailerror={emailerror}
       passworderror={passworderror}

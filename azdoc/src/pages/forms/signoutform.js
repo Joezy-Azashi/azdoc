@@ -8,7 +8,7 @@ import history from '../../history';
 
 
 const Signout = (props) =>{
-    const [visitorId, setVisitorId] = useState("");
+    const [Phone, setPhone] = useState("");
     const [comment, setComment] = useState("");
     const [loader, setLoader] = useState(false);
     const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
@@ -19,7 +19,7 @@ const Signout = (props) =>{
     const handleSubmit = (e) => {
          e.preventDefault();
     setLoader(true);
-    ref.doc(visitorId).update({
+    ref.doc(Phone).update({
       signoutTime: timestamp,
       comment: comment
     })
@@ -48,7 +48,7 @@ const Signout = (props) =>{
       setLoader(false);
     });
 
-    setVisitorId("");
+    setPhone("");
     setComment("");
 
     }
@@ -70,9 +70,9 @@ const Signout = (props) =>{
                     <Form onSubmit={handleSubmit}>
                     <FormGroup row>
                         <Col md={12} mb={4}>
-                                <Label htmlFor="visitorId">VisitorId</Label><br/>
-                                <Input type="text" id="visitorId" name="visitorId" className="form-control nameinput" value={visitorId}
-                                onChange={(e) => setVisitorId(e.target.value)}/>
+                                <Label htmlFor="visitorId">Enter Phone</Label><br/>
+                                <Input type="text" id="visitorId" name="visitorId" className="form-control nameinput" value={Phone}
+                                onChange={(e) => setPhone(e.target.value)}/>
                         </Col>
                         </FormGroup>
                      <FormGroup row>

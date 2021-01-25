@@ -8,11 +8,12 @@ import history from '../../history';
 const Visitor = (props) => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
-  const [visitorid, setVisitorid] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [purpose, setPurpose] = useState("");
+  const [employee, setEmployee] = useState("");
+  const [employeeMail, setEmployeeMail] = useState("");
   const [timestamp, setTimestamp] = useState(new Date().toLocaleString());
 
   const ref = db.firestore().collection("Visitor");
@@ -21,14 +22,18 @@ const Visitor = (props) => {
 
   const handleHistory = ()=> history.push('/welcome')
 
-
+  const sendEmail = ()=> {
+    // const { email } = this.state;
+    fetch(`http://localhost:4000/send-email?recipient=${employeeMail}&name=${employee}&purpose=${purpose}`) //query string url
+      .catch(err => console.error(err))
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoader(true);
     ref.doc(phone).set({
       fname: fname,
       lname: lname,
-      visitorid: visitorid,
+      toVisit: employee,
       company: company,
       phone: phone,
       email: email,
@@ -39,6 +44,7 @@ const Visitor = (props) => {
     })
     .then(() => {
       setLoader(false);
+      
 
       swal({
         icon: "success",
@@ -51,20 +57,21 @@ const Visitor = (props) => {
           closeModal: true
         }
       })
+      
       .then(()=>{
         handleHistory();
+        
       })
 
-      
+      sendEmail();
     })
     .catch((error) => {
-      alert(error.message);
+    
       setLoader(false);
     });
 
     setFname('');
     setLname('');
-    setVisitorid('');
     setCompany('');
     setPhone('');
     setEmail('');
@@ -84,7 +91,7 @@ const Visitor = (props) => {
                 </div>
                   <div>
                     <h3>
-                      {props.name}
+                      {props.name} 
                     </h3>
                   </div>
                   <br />
@@ -94,7 +101,7 @@ const Visitor = (props) => {
                             <label>First Name</label><br/>
                             <input type="text" className="form-control nameinput"
                             value={fname}
-                            onChange={(e) => setFname(e.target.value)}
+                            onChange={(e) => setFname(e.target.value) }
                             />
                           </div>
 
@@ -107,11 +114,19 @@ const Visitor = (props) => {
                       </div>
                       <div className="row">
                           <div className="col-md-6 mb-4">
-                            <label>VisitorId</label><br/>
-                            <input type="text" className="form-control nameinput"
-                            value={visitorid}
-                            onChange={(e) => setVisitorid(e.target.value)}
-                            />
+                            <label>To Visit</label><br/>
+                            <select className="form-select" aria-label="Default select example"
+                            onChange={(e)=>{setEmployeeMail(e.target.value)}}>
+                              <option value="Enter Name">Enter Name</option>
+                            {props.employee.map((employee)=>{
+                              return(<option key={employee.id} value={employee.email}
+                                   
+                                >
+                                {employee.name}
+                                </option>)                              
+                            })}
+                            </select>
+                            
                           </div>
 
                           <div className="col-md-6">
@@ -169,8 +184,10 @@ const Visitor = (props) => {
                   </form>
             </div>
             </div>
-      </div>      
+           
+      </div>  
+         
     );
-}
+} 
 
 export default Visitor;
